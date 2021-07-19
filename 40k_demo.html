@@ -132,6 +132,19 @@
 		z-index: 4;
 		display: none;
 	}
+	.cartItems{
+		display: flex; 
+		justify-content:flex-start; 
+		align-items:center; 
+		margin: 2vh; 
+		width: 100%; 
+		flex-direction: column;
+		max-height: 35vh;
+		overflow: auto;
+	}
+	.cartItems p{
+		margin-top: 2vh;
+	}
 	.cartCount{
 		display: none;
 		justify-content: center;
@@ -177,6 +190,10 @@
 		font-style: italic;
 	}
 
+	checkoutbtn{
+		width: 70%;
+	}
+
 
 	@media only screen and (min-width: 1000px) {
 	  cart {
@@ -185,6 +202,9 @@
 	  cartItemsContainer{
 	  	left: 55vw;
 	  	width: 40vw;
+	  }
+	  checkoutbtn{
+		width: 40%;
 	  }
 	}
 
@@ -206,11 +226,15 @@
 		<i class="material-icons" style="position: relative; top: 4%; left: 87%;" onclick="closeCart()"> close </i>
 		<p style="width: 100%; display: flex; justify-content: center; padding-top: 4vh;">  Cart </p>
 
-		<div style="display:flex; position: relative; top:66%; justify-content:center; align-items: center;">
-
-			<button style="height: 8vh; padding: 1vh;">Checkout</button>
-
+		<div  id='cartItemsList' class="cartItems" style="">
+			
 		</div>
+
+
+		<checkoutbtn style="display:flex; position: fixed; top:75vh; justify-content:center; align-items: center;">
+			<button style="height: 8vh; padding: 1vh;">Checkout</button>
+		</checkoutbtn>
+
 	</cartItemsContainer>
 
 	
@@ -219,44 +243,44 @@
 	<p class="sectionHeader"> Single Game Peices </p>
 
 	<productSection>
-		<product id='product-'>
+		<product id='product-1'>
 			<img src="https://i.ibb.co/FKZBYn8/orkBoss.jpg"/>
 			<p> Orc Boss </p>
 			<p> $24.99 </p>
 			
 		</product>
 
-		<product id='product-'>
+		<product id='product-2'>
 			<img src="https://i.ibb.co/S5t849W/GI-Soldier.jpg"/>
 			<p> Marine Soldier </p>
 			<p> $19.99 </p>
 		</product>
 
-		<product id='product-'>
+		<product id='product-3'>
 			<img src="https://i.ibb.co/YBzfT8n/commander.jpg"/>
 			<p> Marine Commander </p>
 			<p> $19.99 </p>
 		</product>
 
-		<product id='product-'>
+		<product id='product-4'>
 			<img src="https://i.ibb.co/gV6BPZ0/mutant.jpg"/>
 			<p> Mutant Warrior </p>
 			<p> $39.99 </p>
 		</product>
 
-		<product id='product-'>
+		<product id='product-5'>
 			<img src="https://i.ibb.co/ggPBXzJ/mage.jpg"/>
 			<p> Rat Mage </p>
 			<p> $29.99 </p>
 		</product>
 
-		<product id='product-'>
+		<product id='product-6'>
 			<img src="https://i.ibb.co/L0XkHSt/lunar-soldier.jpg"/>
 			<p> Lunar Gunner </p>
 			<p> $24.99 </p>
 		</product>
 
-		<product id='product-'>
+		<product id='product-7'>
 			<img src="https://i.ibb.co/7zxjKZT/g-tank.jpg"/>
 			<p> Emerald Tank </p>
 			<p> $34.99 </p>
@@ -271,33 +295,33 @@
 	<p class="sectionHeader"> Browse Kits </p>
 
 	<productSection>
-		<product id='product-'>
+		<product id='product-8'>
 			<img src="https://i.ibb.co/8z4VZz8/skull-crew.jpg"/>
 			<p> Skull Army </p>
 			<p> $39.99 </p>
 		</product>
 
-		<product id='product-'>
+		<product id='product-9'>
 			<img src="https://i.ibb.co/Y2sNXCp/dark-allies.jpg"/>
 			<p> Dark Allies </p>
 			<p> $24.99 </p>
 			
 		</product>
 
-		<product id='product-'>
+		<product id='product-10'>
 			<img src="https://i.ibb.co/pbPR0Fy/troopers.jpg"/>
 			<p> Lunar Troopers </p>
 			<p> $49.99 </p>
 			
 		</product>
 
-		<product id='product-'>
+		<product id='product-11'>
 			<img src="https://i.ibb.co/qkN8BcC/lunar-snipers.jpg"/>
 			<p> Lunar Snipers </p>
 			<p> $24.99 </p>
 		</product>
 
-		<product id='product-'>
+		<product id='product-12'>
 			<img src="https://i.ibb.co/ZVQX3zZ/marine-squad.gif"/>
 			<p> Jar Heads </p>
 			<p> $29.99 </p>
@@ -329,15 +353,41 @@
 
 	var cart = []
  	
+	var products = {}
+
+	class Product{
+		constructor(id, name, price){
+			this.id = id
+			this.name = name
+			this.price = price
+		}
+	}
+
 	// On Load
 	window.addEventListener('load', ()=>{
 		console.log('loading')
+
+		addProducts()
 
 		addCartListener()
 
 		addProductListener()
 	})
 
+	function addProducts(){
+		products[1] = new Product(1, 'Orc Boss', '24.99')
+		products[2] = new Product(2, 'Marine Soldier', '19.99')
+		products[3] = new Product(1, 'Marine Commander', '19.99')
+		products[4] = new Product(1, 'Mutant Warrior', '39.99')
+		products[5] = new Product(1, 'Rat Mage', '29.99')
+		products[6] = new Product(1, 'Lunar Gunner', '24.99')
+		products[7] = new Product(1, 'Emerald Tank', '34.99')
+		products[8] = new Product(1, 'Skull Army', '39.99')
+		products[9] = new Product(1, 'Dark Allies', '24.99')
+		products[10] = new Product(1, 'Lunar Troopers', '49.99')
+		products[11] = new Product(1, 'Lunar Snipers', '24.99')
+		products[12] = new Product(1, 'Jar Heads', '29.99')
+	}
 		
 	function addCartListener(){
 		document.getElementById('cart').onmouseover = () => {
@@ -364,9 +414,42 @@
 	}
 
 	function addProduct(id){
+
+		var text = document.getElementById(id).childNodes[3]
+
+		var origText = text.innerHTML
+
+		text.innerHTML = ' - Added To Cart - '
+
+		setTimeout(()=>{text.innerHTML = origText},2000)
+
+		var productID = id.substring(id.indexOf('-')+1)
 		cart.push(id)
 		if(cart.length > 0) document.getElementById('cart').style.display = 'flex'
 		document.getElementById('cartTxt').innerHTML = cart.length
+
+		addCartItemsContainerHTML()
+	}
+
+	function addCartItemsContainerHTML(){
+		document.getElementById('cartItemsList').innerHTML = ''
+		var itemsHTML = ''
+		var productsAdded = []
+		var total = 0
+		for(var i in cart){
+			console.log(cart[i])
+			var productID = cart[i].substring(cart[i].indexOf('-')+1)
+			var product = products[productID]
+			total += parseFloat(product.price)
+			if(!productsAdded.includes(cart[i])){
+				productsAdded.push(cart[i])
+				var addedCount = instancesOf(cart, cart[i])
+				itemsHTML += '<p>' + addedCount +' - $' + product.price + ' - ' + product.name + ' </p>'
+			}
+		}
+		total = (Math.trunc(total*100))/100
+		itemsHTML += '<p> Total - $'+total+' </p>'
+		document.getElementById('cartItemsList').innerHTML = itemsHTML
 	}
 
 	function openCart(){
@@ -375,6 +458,33 @@
 
 	function closeCart(){
 		document.getElementById('cartItemsContainer').style.display = 'none'
+	}
+
+	function instancesOf(arr, target){
+		var count = 0
+		for(var i in arr){
+			if(arr[i] == target)
+				count++
+		}
+		return count
+	}
+
+	function cartPop(){
+
+		var timeLimit = 3000
+
+		var expandInterval = setInterval(expandCart(), 10)
+
+		setTimeout(()=>{
+			clearInterval(expandInterval)
+		},3000)
+	}
+
+	function expandCart(){
+		var width = document.getElementById('cart').style.offsetWidth
+		document.getElementById('cart').style.width = width + 1
+		document.getElementById('cart').style.hieght = width + 1
+
 	}
 
 </script>
