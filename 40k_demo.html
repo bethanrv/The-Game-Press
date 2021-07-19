@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> The Game Press </title>
+	<link rel="preconnect" href="https://fonts.googleapis.com"> 
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<style>
+	*{
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
+		font-family: 'Josefin Sans', sans-serif;
+	}
+	p{
+		font-size: 1.5em;
+	}
+	button{
+		color: black;
+		background-color: white;
+		border-radius: 5px;
+		font-size: 2em;
+		margin:  2vh;
+		padding: 1vh;
+		border:  0px;
+		border:2px solid dodgerblue;
+	}
+	button:hover{
+		color: white;
+		background-color: #ff0037;
+		border:none;
+	}
+	.headerImg{
+		width: 100vw;
+		height: 56vw;
+		z-index: 0;
+		background-color: rgba(155, 155, 155, 0.2);
+		filter: blur(8px);
+		webkit-filter: blur(8px);
+	}
+	headerTxt{
+		position: absolute;
+		top: 27vw;
+		left :50vw;
+		color : white;
+		font-size: 3em;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transform: translateX(-50%);
+		z-index: 2;
+	}
+	.headerTxtBox{
+		filter: blur(10px);
+		position: absolute;
+		top: 25vw;
+		left :50vw;
+		color : white;
+		width: 50vw;
+		height: 15vh;
+		transform: translateX(-50%);
+		background-color: rgba(200, 200, 200, 0.5);
+		z-index: 1;
+	}
+	.sectionHeader{
+		font-size: 1.5em;
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		padding-top: 10vh;
+		padding-bottom: 5vh;
+	}
+	productSection{
+		display: flex;
+		width: 100vw;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+	product{
+		display: flex;
+		width: 41vh;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	productWide{
+		display: flex;
+		width: 50vw;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	product img{
+		width: 33vh;
+		height: 33vh;
+		border-radius: 50%;
+		margin: 4vh;
+	}
+	product img:hover{
+		border-radius: 10px;
+		border: 4px solid dodgerblue;
+	}
+	product p{
+	}
+	cart{
+		position: fixed;
+		top: 7vh;
+		left:  84vw;
+		background-color: #ff0037;
+		z-index: 3;
+		height: 9vh;
+		width: 9vh;
+		border-radius: 50%;
+		display: none;
+		justify-content: center;
+		align-items: center;
+	}
+	cartItemsContainer{
+		position: fixed;
+		top: 20vh;
+		left: 20vw;
+		width: 70vw;
+		height: 70vh;
+		border-radius: 10px;
+		border:  4px solid dodgerblue;
+		background-color: white;
+		z-index: 4;
+		display: none;
+	}
+	.cartCount{
+		display: none;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+	}
+	.cartIcon{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+	}
+	.cartCounter{
+		position: fixed;
+		top: 6vh;
+		left:  95.5vw;
+		background-color: white;
+		z-index: 4;
+		height: 4vh;
+		width: 4vh;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 1px solid dodgerblue;
+		font-size: 0.5em;
+	}
+	footer{
+		width: 100%;
+		position: fixed;
+		left: 0;
+		top:  87vh;
+		height: 10vh;
+		background-color: white;
+		border: 4px solid dodgerblue;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	footer p{
+		font-style: italic;
+	}
+
+
+	@media only screen and (min-width: 1000px) {
+	  cart {
+	    left: 90vw;
+	  }
+	  cartItemsContainer{
+	  	left: 55vw;
+	  	width: 40vw;
+	  }
+	}
+
+</style>
+<body>
+
+
+	<img class="headerImg" src="https://i.ibb.co/QYJQQHY/40kcity.png"/> 
+
+	<headerTxt> The Game Press </headerTxt>
+
+	<cart id='cart' style='color: white;' onclick='openCart()'> 
+		<i id="cartIcon" class="material-icons cartIcon"> shopping_cart </i>
+		<p  id="cartTxt" class="cartCount"> 0 </p>
+	</cart>
+
+	<cartItemsContainer id='cartItemsContainer' style='flex-direction: column;'>
+
+		<i class="material-icons" style="position: relative; top: 4%; left: 87%;" onclick="closeCart()"> close </i>
+		<p style="width: 100%; display: flex; justify-content: center; padding-top: 4vh;">  Cart </p>
+
+		<div style="display:flex; position: relative; top:66%; justify-content:center; align-items: center;">
+
+			<button style="height: 8vh; padding: 1vh;">Checkout</button>
+
+		</div>
+	</cartItemsContainer>
+
+	
+
+
+	<p class="sectionHeader"> Single Game Peices </p>
+
+	<productSection>
+		<product id='product-'>
+			<img src="https://i.ibb.co/FKZBYn8/orkBoss.jpg"/>
+			<p> Orc Boss </p>
+			<p> $24.99 </p>
+			
+		</product>
+
+		<product id='product-'>
+			<img src="https://i.ibb.co/S5t849W/GI-Soldier.jpg"/>
+			<p> Marine Soldier </p>
+			<p> $19.99 </p>
+		</product>
+
+		<product id='product-'>
+			<img src="https://i.ibb.co/YBzfT8n/commander.jpg"/>
+			<p> Marine Commander </p>
+			<p> $19.99 </p>
+		</product>
+
+		<product id='product-'>
+			<img src="https://i.ibb.co/gV6BPZ0/mutant.jpg"/>
+			<p> Mutant Warrior </p>
+			<p> $39.99 </p>
+		</product>
+
+		<product id='product-'>
+			<img src="https://i.ibb.co/ggPBXzJ/mage.jpg"/>
+			<p> Rat Mage </p>
+			<p> $29.99 </p>
+		</product>
+
+		<product id='product-'>
+			<img src="https://i.ibb.co/L0XkHSt/lunar-soldier.jpg"/>
+			<p> Lunar Gunner </p>
+			<p> $24.99 </p>
+		</product>
+
+		<product id='product-'>
+			<img src="https://i.ibb.co/7zxjKZT/g-tank.jpg"/>
+			<p> Emerald Tank </p>
+			<p> $34.99 </p>
+		</product>
+
+		
+		
+	</productSection>
+
+
+
+	<p class="sectionHeader"> Browse Kits </p>
+
+	<productSection>
+		<product id='product-'>
+			<img src="https://i.ibb.co/8z4VZz8/skull-crew.jpg"/>
+			<p> Skull Army </p>
+			<p> $39.99 </p>
+		</product>
+
+		<product id='product-'>
+			<img src="https://i.ibb.co/Y2sNXCp/dark-allies.jpg"/>
+			<p> Dark Allies </p>
+			<p> $24.99 </p>
+			
+		</product>
+
+		<product id='product-'>
+			<img src="https://i.ibb.co/pbPR0Fy/troopers.jpg"/>
+			<p> Lunar Troopers </p>
+			<p> $49.99 </p>
+			
+		</product>
+
+		<product id='product-'>
+			<img src="https://i.ibb.co/qkN8BcC/lunar-snipers.jpg"/>
+			<p> Lunar Snipers </p>
+			<p> $24.99 </p>
+		</product>
+
+		<product id='product-'>
+			<img src="https://i.ibb.co/ZVQX3zZ/marine-squad.gif"/>
+			<p> Jar Heads </p>
+			<p> $29.99 </p>
+		</product>
+		
+	</productSection>
+
+	<p class="sectionHeader"> Custom Painting </p>
+
+	<productSection>
+		<productWide>
+			<p> Send in your peices for custom painting </p>
+
+			<button style=""> Get A Quote </button>
+		</productWide>
+	</productSection>
+
+
+	<p class="sectionHeader"> Meet The Artist </p>
+
+	<footer id="footer"> 
+		<p> This Website Uses Cookies To Maintain Your Cart </p>
+		<button onclick="acceptCookie()" style="margin-left: 5vw;"> Accept</button> 
+	</footer>
+
+</body>
+</html>
+<script>
+
+	var cart = []
+ 	
+	// On Load
+	window.addEventListener('load', ()=>{
+		console.log('loading')
+
+		addCartListener()
+
+		addProductListener()
+	})
+
+		
+	function addCartListener(){
+		document.getElementById('cart').onmouseover = () => {
+			document.getElementById('cartIcon').style.display = 'none';
+			document.getElementById('cartTxt').style.display = 'flex';
+		}
+		document.getElementById('cart').onmouseleave = () => {
+			document.getElementById('cartIcon').style.display = 'flex';
+			document.getElementById('cartTxt').style.display = 'none';
+		}
+	} 
+
+	function acceptCookie(){
+		document.getElementById('footer').style.display = 'none'
+	}
+
+	function addProductListener(){
+		var products = document.getElementsByTagName('product')
+		for(var p in products){
+			var product = products[p]
+			let id = product.id
+			product.onclick = ()=> { addProduct(id) }
+		}
+	}
+
+	function addProduct(id){
+		cart.push(id)
+		if(cart.length > 0) document.getElementById('cart').style.display = 'flex'
+		document.getElementById('cartTxt').innerHTML = cart.length
+	}
+
+	function openCart(){
+		document.getElementById('cartItemsContainer').style.display = 'flex'
+	}
+
+	function closeCart(){
+		document.getElementById('cartItemsContainer').style.display = 'none'
+	}
+
+</script>
