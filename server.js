@@ -1,5 +1,7 @@
 require('dotenv').config(); // read .env files
 const express = require('express');
+const stripe = require('stripe')('pk_live_51JFQjwCqJa3fxh3yY169fh4ovwtZ93xhPOPz6w3tE35UBJTfXAbzR3SZmwm4WF0BMCwCZzBhF4h2IQo0BJJlLeHf001BSjMQF4');
+
 
 const app = express();
 const port = process.env.PORT || 3000;
