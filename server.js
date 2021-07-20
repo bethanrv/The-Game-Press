@@ -17,6 +17,9 @@ app.listen(port, () => {
   console.log('listening on %d', port);
 
 
+  
+
+
   //const getProjects = ()=>{
   //  const products = await stripe.products.list({});
   //  return products
@@ -24,4 +27,7 @@ app.listen(port, () => {
 
 });
 
-
+// respond with "hello world" when a GET request is made to the homepage
+app.get('/', function (req, res) {
+  res.send('hello world')
+})
