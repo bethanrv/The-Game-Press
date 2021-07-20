@@ -17,15 +17,15 @@ app.listen(port, () => {
   console.log('listening on %d', port);
 
 
-  const getProjects = ()=>{
-    const products = await stripe.products.list({});
-    return products
-  }
+  //const getProjects = ()=>{
+  //  const products = await stripe.products.list({});
+  //  return products
+  //}
 
 });
 
 
 // respond with "hello world" when a GET request is made to the homepage
-app.get('/test', function (req, res) {
+app.get('/', function (req, res) {
   res.send('hello world')
 })
