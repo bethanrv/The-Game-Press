@@ -201,10 +201,10 @@ checkoutbtn{
 
 @media only screen and (max-width: 999px) {
   p{
-  	font-size: 3em;
+  	font-size: 2em;
   }
   cart{
-  	height: 5vh;
-  	width: 5vh;
+  	height: 6vh;
+  	width: 6vh;
   }
 }
