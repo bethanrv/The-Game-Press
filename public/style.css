@@ -72,6 +72,15 @@ productSection{
 	max-height: 60vh;
 	overflow: scroll;
 }
+promptSection{
+	display: flex;
+	width: 100vw;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	max-height: 60vh;
+	overflow: scroll;
+}
 productSection:hover{
 	box-shadow: 0 0 5px 5px gray inset;
 }
