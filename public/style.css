@@ -204,4 +204,11 @@ checkoutbtn{
   	height: 8vh;
   	width: 8vh;
   }
+  headerTxt{
+  	font-size: 3em;
+  }
+  product img{
+  	height: 20vh;
+  	width: 20vh;
+  }
 }
