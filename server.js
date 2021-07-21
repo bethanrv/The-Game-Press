@@ -31,3 +31,7 @@ app.listen(port, () => {
 app.get('/test', function (req, res) {
   res.send('hello world')
 })
+
+app.get('/getProducts', (req,res)=>{
+  res.send(await stripe.products.list({}))
+})
