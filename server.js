@@ -32,6 +32,3 @@ app.get('/test', function (req, res) {
   res.send('hello world')
 })
 
-app.get('/getProducts', function (req,res){
-  res.send(await stripe.products.list({}))
-})
