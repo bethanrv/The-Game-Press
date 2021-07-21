@@ -32,3 +32,6 @@ app.get('/test', function (req, res) {
   res.send('hello world')
 })
 
+app.get('/test2', function (req, res) {
+  res.send('hello world 2')
+})
