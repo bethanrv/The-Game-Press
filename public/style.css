@@ -198,3 +198,13 @@ checkoutbtn{
 	width: 40%;
   }
 }
+
+@media only screen and (max-width: 999px) {
+  p{
+  	font-size: 3em;
+  }
+  cart{
+  	height: 5vh;
+  	width: 5vh;
+  }
+}
