@@ -44,6 +44,6 @@ app.get('/test3', function (req, res) {
 
 app.get('/products', async function(req,res){
 
-  const products = await stripe.products.list()
+  const products = await stripe.products.list({})
   res.send(products)
 })
