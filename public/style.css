@@ -69,7 +69,7 @@ productSection{
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
-	max-height: 60vh;
+	max-height: 100vh;
 	overflow: scroll;
 }
 promptSection{
@@ -78,7 +78,7 @@ promptSection{
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
-	max-height: 80vh;
+	max-height: 60vh;
 	overflow: scroll;
 }
 productSection:hover{
