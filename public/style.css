@@ -78,7 +78,7 @@ promptSection{
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
-	max-height: 60vh;
+	max-height: 80vh;
 	overflow: scroll;
 }
 productSection:hover{
